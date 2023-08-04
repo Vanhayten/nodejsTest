@@ -1,0 +1,26 @@
+<%- include('../partials/head.ejs') %>
+
+<%- include('../partials/header.ejs') %>
+
+<h1>Search Posts</h1>
+
+<form action="/search/title" method="POST">
+  <label for="title">Search by Title:</label>
+  <input type="text" id="title" name="title">
+  <button type="submit">Search</button>
+</form>
+
+<form action="/search/category" method="POST">
+  <label for="category">Search by Category:</label>
+  <select id="category" name="category">
+    <% categories.forEach(category => { %>
+      <option value="<%= category %>"><%= category %></option>
+    <% }) %>
+  </select>
+  <button type="submit">Search</button>
+</form>
+
+<%- include('../partials/posts.ejs') %>
+
+<%- include('../partials/footer.ejs') %>
+
